@@ -1,0 +1,173 @@
+<% layout('layout'); %>
+<!-- BEGIN PAGE HEAD -->
+<div class="page-head">
+    <div class="container">
+        <!-- BEGIN PAGE TITLE -->
+        <div class="page-title">
+        </div>
+        <!-- END PAGE TITLE -->
+        <!-- BEGIN PAGE TOOLBAR -->
+        <div class="page-toolbar">
+        </div>
+        <!-- END PAGE TOOLBAR -->
+    </div>
+</div>
+<!-- END PAGE HEAD -->
+<!-- BEGIN PAGE CONTENT -->
+<div class="page-content">
+    <div class="container">
+        <!-- BEGIN PAGE CONTENT INNER -->
+        <div class="row margin-top-10">
+            <div class="col-md-8 col-sm-12">
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <span class="caption-subject theme-font bold uppercase">Mới cập nhật</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row mix-grid">
+                            <% _.each(updatedBooks, function(book, index) {
+                            if (index < 12) {
+                            %>
+                            <div class="col-md-3 col-sm-4 mix">
+                                <div class="mix-inner book center">
+                                    <div class="book-img">
+                                        <a href="<%= "/truyen/" + book.nameGen + "?link=" + link %>" title="<%= book.name %>">
+                                            <img class="img-responsive" src="<%= "/cover/400/500/" + book.nameGen + "." + extension %>"
+                                                 alt="<%= book.name %>">
+                                        </a>
+                                    </div>
+                                    <% if (book.lastChapterName) { %>
+                                    <div class="book-info">
+                                        <a href="<%= "/truyen/" + book.nameGen + "/" + book.lastChapterNameGen + "?link=" + link %>"><%= book.lastChapterName %></a>
+                                        <br>
+                                        <i class="fa fa-clock-o" style="color: white"></i>
+                                        <span style="color: #e7e7e7"><%= moment(book.updatedAt).fromNow() %></span>
+                                    </div>
+                                    <% } %>
+                                    <h4><%= book.name %></h4>
+                                </div>
+                            </div>
+                            <% }}); %>
+                        </div>
+                        <a class="btn btn-default" href="#">Xem tất cả</a>
+                    </div>
+                </div>
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <span class="caption-subject theme-font bold uppercase">Truyện mới</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row mix-grid">
+                            <% _.each(newBooks, function(book, index) {
+                            if (index < 12) {
+                            %>
+                            <div class="col-md-3 col-sm-4 mix">
+                                <div class="mix-inner book center">
+                                    <div class="book-img">
+                                        <a href="<%= "/truyen/" + book.nameGen + "?link=" + link %>" title="<%= book.name %>">
+                                            <img class="img-responsive" src="<%= "/cover/400/500/" + book.nameGen + "." + extension %>"
+                                                 alt="<%= book.name %>">
+                                        </a>
+                                    </div>
+                                    <% if (book.lastChapterName) { %>
+                                    <div class="book-info">
+                                        <a href="<%= "/truyen/" + book.nameGen + "/" + book.lastChapterNameGen + "?link=" + link %>"><%= book.lastChapterName %></a>
+                                        <br>
+                                        <i class="fa fa-clock-o" style="color: white"></i>
+                                        <span style="color: #e7e7e7"><%= moment(book.updatedAt).fromNow() %></span>
+                                    </div>
+                                    <% } %>
+                                    <h4><%= book.name %></h4>
+                                </div>
+                            </div>
+                            <% }}); %>
+                        </div>
+                        <a class="btn btn-default" href="#">Xem tất cả</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <span class="caption-subject theme-font bold uppercase">FANPAGE</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="fb-page" data-href="https://www.facebook.com/manganet.org"
+                             data-hide-cover="false" data-show-facepile="true"
+                             data-show-posts="false">
+                            <div class="fb-xfbml-parse-ignore">
+                                <blockquote cite="https://www.facebook.com/manganet.org"><a
+                                            href="https://www.facebook.com/manganet.org">MangaNet</a>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <span class="caption-subject theme-font bold uppercase">Truyện Hot</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <ul class="list-group">
+                            <% _.each(hotBooks, function(book, index) {
+                            if (index < 10) {
+                            %>
+                            <li class="list-group-item">
+                                <a href="<%= "/truyen/" + book.nameGen %>">
+                                    <img alt="<%= book.name %>" class="img-circle" src="<%= "/cover/48/48/" + book.nameGen + "." + extension %>">
+
+                                    <div class="book-detail">
+                                        <div class="book-name"><%= book.name %></div>
+                                        <div class="item-label">
+                                            <i class="fa fa-calendar"></i>
+                                            <%= moment(book.updatedAt).format('MMMM Do YYYY, h:mm a') %>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <% }}); %>
+                        </ul>
+                    </div>
+                </div>
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <span class="caption-subject theme-font bold uppercase">Xem nhiều nhất</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <ul class="list-group">
+                            <% _.each(topViewBooks, function(book, index) {
+                            if (index < 10) {
+                            %>
+                            <li class="list-group-item">
+                                <a href="<%= "/truyen/" + book.nameGen %>">
+                                    <img alt="<%= book.name %>" class="img-circle" src="<%= "/cover/48/48/" + book.nameGen + "." + extension %>">
+
+                                    <div class="book-detail">
+                                        <div class="book-name"><%= book.name %></div>
+                                        <div class="item-label">
+                                            <i class="fa fa-calendar"></i>
+                                            <%= moment(book.updatedAt).format('MMMM Do YYYY, h:mm a') %>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <% }}); %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE CONTENT INNER -->
+    </div>
+</div>
+<!-- END PAGE CONTENT -->

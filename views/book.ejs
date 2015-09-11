@@ -1,0 +1,265 @@
+<% layout('layout'); %>
+<!-- BEGIN PAGE HEAD -->
+<div class="page-head">
+    <div class="container">
+        <!-- BEGIN PAGE TITLE -->
+        <div class="page-title">
+            <h1><%= book.name %></h1>
+        </div>
+        <!-- END PAGE TITLE -->
+        <!-- BEGIN PAGE TOOLBAR -->
+        <div class="page-toolbar">
+        </div>
+        <!-- END PAGE TOOLBAR -->
+    </div>
+</div>
+<!-- END PAGE HEAD -->
+<!-- BEGIN PAGE CONTENT -->
+<div class="page-content">
+    <div class="container">
+        <!-- BEGIN PAGE BREADCRUMB -->
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <a class="uppercase" href="/">Trang chủ</a><i class="fa fa-circle"></i>
+            </li>
+            <% if (link === 2) { %>
+            <li>
+                <a class="uppercase" href="/danh-sach-truyen">Danh sách truyện</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <% } %>
+            <li class="active">
+                <%= book.name %>
+            </li>
+        </ul>
+        <!-- END PAGE BREADCRUMB -->
+        <!-- BEGIN PAGE CONTENT INNER -->
+        <div class="row margin-top-10">
+            <div class="col-md-8 col-sm-12">
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <span class="caption-subject theme-font bold uppercase"><%= book.name %></span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="blog-tag-data">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="book-img center">
+                                        <img style="max-width: 100%;" src="<%= "/cover/160/210/" + book.nameGen + "." + extension %>"
+                                             alt="<%= book.name %>">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-9">
+                                    <div class="row static-info">
+                                        <div class="col-md-3 name">Tóm tắt</div>
+                                        <div class="col-md-9 value">
+                                                        <span>
+                                                            <%= book.description %>
+                                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="row static-info">
+                                        <div class="col-md-3 name">Ngày cập nhật</div>
+                                        <div class="col-md-9 value">
+                                                        <span>
+                                                            <%= moment(book.updatedAt).format("YYYY/MM/DD HH:mm") %>
+                                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="row static-info">
+                                        <div class="col-md-3 name">Ngày đăng</div>
+                                        <div class="col-md-9 value">
+                                                        <span>
+                                                        <%= moment(book.createdAt).format("YYYY/MM/DD HH:mm") %>
+                                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="row static-info">
+                                        <div class="col-md-3 name">
+                                            Đánh giá
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="star star-ex"
+                                                 data-score="<%= (book.voteTotal && book.voteCount) ?
+                                                         Math.round(book.voteTotal / book.voteCount) : 3 %>"
+                                                 data-book-id="<%= book.id %>"></div>
+                                            &nbsp;
+                                                        <span class="badge badge-info">
+                                                            <%= book.voteCount ? book.voteCount : 0 %>
+                                                        </span>
+                                        </div>
+                                    </div>
+                                    <div class="row static-info">
+                                        <div class="col-md-3 name">Lượt xem</div>
+                                        <div
+                                                class="col-md-9 value"><%= book.views ? book.views : 0 %></div>
+                                    </div>
+                                    <div class="row static-info">
+                                        <div class="col-md-3 name">Thể loại</div>
+                                        <div class="col-md-9 value">
+                                            <ul class="list-inline sidebar-tags">
+                                                <% for(var i = 0; i < book.category.length; i++) { %>
+                                                <li>
+                                                    <a href="<%= '/the-loai/' + book.category[i] %>">
+                                                        <i class="fa fa-tags"></i>
+                                                        <span><%= book.category[i] %></span>
+                                                    </a>
+                                                </li>
+                                                <% } %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row static-info">
+                                        <div class="col-md-3 col-sm-12">
+                                            <div class="fb-like"
+                                                 data-href="<%= "http://manganet.org/truyen/" + book.nameGen %>"
+                                                 data-layout="button_count" data-action="like"
+                                                 data-show-faces="false" data-share="true"></div>
+                                        </div>
+                                        <div class="col-md-2 col-sm-12">
+                                            <div class="g-plusone pull-right"
+                                                 data-href="<%= "http://manganet.org/truyen/" + book.nameGen %>"
+                                                 data-size="medium"></div>
+                                        </div>
+                                        <div class="col-md-2 col-sm-12">
+                                            <a href="https://twitter.com/share" class="twitter-share-button"
+                                               data-via="MangaNetORG">Tweet</a>
+                                            <script>!function (d, s, id) {
+                                                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                                    if (!d.getElementById(id)) {
+                                                        js = d.createElement(s);
+                                                        js.id = id;
+                                                        js.src = p + '://platform.twitter.com/widgets.js';
+                                                        fjs.parentNode.insertBefore(js, fjs);
+                                                    }
+                                                }(document, 'script', 'twitter-wjs');</script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <span class="caption-subject theme-font bold uppercase">Nội dung</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body fixed-panel">
+                        <div class="media">
+                            <div class="list-group">
+                                <% _.each(chapters, function(chapter) { %>
+
+                                <a class="list-group-item"
+                                   href="<%= "/truyen/" + book.nameGen + "/" + chapter.nameGen + "?link=" + ((link) ? link : "1") %>">
+                                    <div class="row">
+                                        <strong class="col-md-8"><%= chapter.name %></strong>
+
+                                        <div class="col-md-4">
+                                            <i class="fa fa-calendar"></i>
+                                            <%= moment(chapter.updatedAt).format('DD/MM/YYYY - h:mm a') %>
+                                            <% if (moment(chapter.updatedAt).isBetween(moment(new Date).subtract(3, 'days'), moment(new Date))) { %>
+                                            <span class="badge badge-danger">new</span>
+                                            <% } %>
+                                        </div>
+                                    </div>
+                                </a>
+                                <% }) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <span class="caption-subject theme-font bold uppercase">Bình luận</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <span class="caption-subject theme-font bold uppercase">FANPAGE</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="fb-page" data-href="https://www.facebook.com/manganet.org"
+                             data-hide-cover="false" data-show-facepile="true"
+                             data-show-posts="false">
+                            <div class="fb-xfbml-parse-ignore">
+                                <blockquote cite="https://www.facebook.com/manganet.org"><a
+                                            href="https://www.facebook.com/manganet.org">MangaNet</a>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <span class="caption-subject theme-font bold uppercase">Truyện liên quan</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <ul class="list-group">
+                            <% _.each(_.sample(reladedBooks, 5), function(book) {
+                            %>
+                            <li class="list-group-item">
+                                <a href="<%= "/truyen/" + book.nameGen %>">
+                                    <img alt="<%= book.name %>" class="img-circle" src="<%= "/cover/48/48/" + book.nameGen + "." + extension %>">
+
+                                    <div class="book-detail">
+                                        <div class="book-name"><%= book.name %></div>
+                                        <div class="item-label">
+                                            <i class="fa fa-calendar"></i>
+                                            <%= moment(book.updatedAt).format('MMMM Do YYYY, h:mm a') %>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <% }); %>
+                        </ul>
+                    </div>
+                </div>
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption caption-md">
+                            <span class="caption-subject theme-font bold uppercase">Truyện HOT</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <ul class="list-group">
+                            <% _.each(hotBooks, function(book, index) {
+                            if (index < 5) {
+                            %>
+                            <li class="list-group-item">
+                                <a href="<%= "/truyen/" + book.nameGen %>">
+                                    <img alt="<%= book.name %>" class="img-circle" src="<%= "/cover/48/48/" + book.nameGen + "." + extension %>">
+
+                                    <div class="book-detail">
+                                        <div class="book-name"><%= book.name %></div>
+                                        <div class="item-label">
+                                            <i class="fa fa-calendar"></i>
+                                            <%= moment(book.updatedAt).format('MMMM Do YYYY, h:mm a') %>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <% }}); %>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE CONTENT INNER -->
+    </div>
+</div>
+<!-- END PAGE CONTENT -->

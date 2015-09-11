@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8">
+<![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9">
+<![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8">
+    <title>MangaNet - Đọc truyện tranh online</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="MangaNet" name="author">
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+    <link rel="stylesheet" type="text/css" href="../../assets/global/plugins/select2/select2.css"/>
+    <!-- END PAGE LEVEL PLUGIN STYLES -->
+    <!-- BEGIN PAGE STYLES -->
+    <link href="../../assets/admin/pages/css/error.css" rel="stylesheet" type="text/css"/>
+    <!-- END PAGE STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../../assets/global/css/components-md.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/global/css/plugins-md.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/admin/layout3/css/layout.css" rel="stylesheet" type="text/css"/>
+    <link href="../../assets/admin/layout3/css/themes/default.css" rel="stylesheet" type="text/css" id="style_color"/>
+    <link href="../../assets/admin/layout3/css/custom.css" rel="stylesheet" type="text/css"/>
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="/favicon.ico"/>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-menu-fixed page-md">
+<div id="fb-root"></div>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({appId: "1568938036694600", xfbml: !0, version: "v2.3"})
+    }, function (e, n, t) {
+        var c, o = e.getElementsByTagName(n)[0];
+        e.getElementById(t) || (c = e.createElement(n), c.id = t, c.async = !0, c.src = "//connect.facebook.net/vi_VN/sdk.js", o.parentNode.insertBefore(c, o))
+    }(document, "script", "facebook-jssdk");
+</script>
+<script src="//apis.google.com/js/platform.js" async defer></script>
+<!-- BEGIN HEADER -->
+<div class="page-header">
+    <!-- BEGIN HEADER TOP -->
+    <div class="page-header-top">
+        <div class="container">
+            <!-- BEGIN LOGO -->
+            <div class="page-logo">
+                <a href="/"><img src="../../assets/admin/layout3/img/logo-default.png" alt="logo" class="logo-default"></a>
+            </div>
+            <!-- END LOGO -->
+            <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+            <a href="#" class="menu-toggler"></a>
+            <!-- END RESPONSIVE MENU TOGGLER -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <div class="top-menu">
+                <ul class="nav navbar-nav pull-right">
+                    <!-- BEGIN INBOX DROPDOWN -->
+                    <li class="dropdown dropdown-extended dropdown-dark dropdown-inbox" id="header_inbox_bar">
+                        <ul class="dropdown-menu">
+                            <li class="external">
+                                <h3>You have <strong>7 New</strong> Messages</h3>
+                                <a href="#">view all</a>
+                            </li>
+                            <li>
+                                <ul class="dropdown-menu-list scroller" style="height: 275px;" data-handle-color="#637283">
+                                    <li>
+                                        <a href="inbox.html?a=view">
+										<span class="photo">
+										<img src="../../assets/admin/layout3/img/avatar2.jpg" class="img-circle" alt="">
+										</span>
+										<span class="subject">
+										<span class="from">
+										Lisa Wong </span>
+										<span class="time">Just Now </span>
+										</span>
+										<span class="message">
+										Vivamus sed auctor nibh congue nibh. auctor nibh auctor nibh... </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END INBOX DROPDOWN -->
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <li class="dropdown dropdown-user dropdown-dark">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <img alt="" class="img-circle" src="../../assets/admin/layout3/img/avatar9.jpg">
+                            <span class="username username-hide-mobile">Nick</span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-default">
+                            <li>
+                                <a href="extra_profile.html">
+                                    <i class="icon-user"></i> My Profile </a>
+                            </li>
+                            <li>
+                                <a href="page_calendar.html">
+                                    <i class="icon-calendar"></i> My Calendar </a>
+                            </li>
+                            <li>
+                                <a href="inbox.html">
+                                    <i class="icon-envelope-open"></i> My Inbox <span class="badge badge-danger">
+								3 </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="icon-rocket"></i> My Tasks <span class="badge badge-success">
+								7 </span>
+                                </a>
+                            </li>
+                            <li class="divider">
+                            </li>
+                            <li>
+                                <a href="extra_lock.html">
+                                    <i class="icon-lock"></i> Lock Screen </a>
+                            </li>
+                            <li>
+                                <a href="login.html">
+                                    <i class="icon-key"></i> Log Out </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <li class="dropdown dropdown-extended quick-sidebar-toggler">
+                        <span class="sr-only">Toggle Quick Sidebar</span>
+                        <i class="icon-logout"></i>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+    </div>
+    <!-- END HEADER TOP -->
+    <!-- BEGIN HEADER MENU -->
+    <div id="header-menu" class="page-header-menu">
+        <div class="container">
+            <!-- BEGIN HEADER SEARCH BOX -->
+            <form class="search-form" action="extra_search.html" method="GET">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm" name="query">
+					<span class="input-group-btn">
+					<a href="#" class="btn submit"><i class="icon-magnifier"></i></a>
+					</span>
+                </div>
+            </form>
+            <!-- END HEADER SEARCH BOX -->
+            <!-- BEGIN MEGA MENU -->
+            <div class="hor-menu ">
+                <ul class="nav navbar-nav">
+                    <li class="<%= helper.checkUrl(req, "") ? "active uppercase" : "uppercase" %>">
+                        <a href="/">Trang chủ</a>
+                    </li>
+                    <li class="<%= helper.checkUrl(req, "danh-sach-truyen") || link === 2 ? "active uppercase" : "uppercase" %>">
+                        <a href="/danh-sach-truyen">Danh sách truyện</a>
+                    </li>
+                    <li class="<%= helper.checkUrl(req, "truyen-moi") ? "active uppercase" : "uppercase" %>">
+                        <a href="/truyen-moi">Truyện mới</a>
+                    </li>
+                    <li class="<%= helper.checkUrl(req, "the-loai") ? "active menu-dropdown mega-menu-dropdown" : "menu-dropdown mega-menu-dropdown" %>">
+                        <a data-hover="megamenu-dropdown" data-close-others="true" data-toggle="dropdown" href="#"
+                           class="dropdown-toggle">
+                            THỂ LOẠI<i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu" style="min-width: 710px">
+                            <li>
+                                <div class="mega-menu-content">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <ul class="mega-menu-submenu">
+                                                <% _.each(categories[0], function(category) { %>
+                                                <li>
+                                                    <a href="<%= "/the-loai/" + encodeURI(category.data) %>"><i
+                                                                class="fa fa-tag"></i><%= category.data %></a>
+                                                </li>
+                                                <% }); %>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <ul class="mega-menu-submenu">
+                                                <% _.each(categories[1], function(category) { %>
+                                                <li>
+                                                    <a href="<%= "/the-loai/" + encodeURI(category.data) %>"><i
+                                                                class="fa fa-tag"></i><%= category.data %></a>
+                                                </li>
+                                                <% }); %>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <ul class="mega-menu-submenu">
+                                                <% _.each(categories[2], function(category) { %>
+                                                <li>
+                                                    <a href="<%= "/the-loai/" + encodeURI(category.data) %>"><i
+                                                                class="fa fa-tag"></i><%= category.data %></a>
+                                                </li>
+                                                <% }); %>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <ul class="mega-menu-submenu">
+                                                <% _.each(categories[3], function(category) { %>
+                                                <li>
+                                                    <a href="<%= "/the-loai/" + encodeURI(category.data) %>"><i
+                                                                class="fa fa-tag"></i><%= category.data %></a>
+                                                </li>
+                                                <% }); %>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- END MEGA MENU -->
+        </div>
+    </div>
+    <!-- END HEADER MENU -->
+</div>
+<!-- END HEADER -->
+<!-- BEGIN PAGE CONTAINER -->
+<div class="page-container">
+    <%- body %>
+</div>
+<!-- END PAGE CONTAINER -->
+<!-- BEGIN PRE-FOOTER -->
+<div class="page-prefooter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
+                <h2>Về MANGANET</h2>
+
+                <p>Mạng truyện tranh trực tuyến phong phú nhất, nhanh nhất, cập nhật liên tục 24h!!!</p>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs12 footer-block">
+                <h2>Danh mục</h2>
+                <ul>
+                    <li><a class="uppercase" href="/">Trang chủ</a></li>
+                    <li><a class="uppercase" href="/danh-sach-truyen">Danh sách truyện</a></li>
+                    <li><a class="uppercase" href="/truyen-moi">Truyện mới</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
+                <h2>Follow Us On</h2>
+                <ul class="social-icons">
+                    <li>
+                        <a href="#" data-original-title="rss" class="rss"></a>
+                    </li>
+                    <li>
+                        <a href="#" data-original-title="facebook" class="facebook"></a>
+                    </li>
+                    <li>
+                        <a href="#" data-original-title="twitter" class="twitter"></a>
+                    </li>
+                    <li>
+                        <a href="#" data-original-title="googleplus" class="googleplus"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 footer-block">
+                <h2>Liên hệ</h2>
+                <address class="margin-bottom-40">
+                    Phone: 1900 1080<br>
+                    Email: <a href="mailto:manganet.org@gmail.com">manganet.org@gmail.com</a>
+                </address>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END PRE-FOOTER -->
+<!-- BEGIN FOOTER -->
+<div class="page-footer">
+    <div class="container center">
+        Copyright &copy; 2015 by MangaNet.
+    </div>
+</div>
+<div class="scroll-to-top">
+    <i class="icon-arrow-up"></i>
+</div>
+<!-- END FOOTER -->
+<!-- BEGIN JAVASCRIPTS  -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="../../assets/global/plugins/respond.min.js"></script>
+<script src="../../assets/global/plugins/excanvas.min.js"></script>
+<![endif]-->
+<script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="../../assets/global/plugins/jquery-mixitup/jquery.mixitup.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../assets/global/plugins/select2/select2.min.js"></script>
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="../../assets/global/scripts/metronic.js" type="text/javascript"></script>
+<script src="../../assets/admin/layout3/scripts/layout.js" type="text/javascript"></script>
+<!-- END PAGE LEVEL SCRIPTS -->
+
+<script src="../../js/main.js"></script>
+<script>
+    jQuery(document).ready(function () {
+        Metronic.init(); // init metronic core componets
+        Layout.init(); // init layout
+    });
+</script>
+<!-- END JAVASCRIPTS -->
+</body>
+</html>

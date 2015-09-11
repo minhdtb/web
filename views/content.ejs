@@ -1,0 +1,110 @@
+<% layout('layout'); %>
+<!-- BEGIN PAGE HEAD -->
+<div class="page-head">
+    <div class="container">
+        <!-- BEGIN PAGE TITLE -->
+        <div class="page-title">
+            <h1><%= book.name %></h1>
+        </div>
+        <!-- END PAGE TITLE -->
+        <!-- BEGIN PAGE TOOLBAR -->
+        <div class="page-toolbar">
+        </div>
+        <!-- END PAGE TOOLBAR -->
+    </div>
+</div>
+<!-- END PAGE HEAD -->
+<!-- BEGIN PAGE CONTENT -->
+<div class="page-content">
+    <div class="container">
+        <!-- BEGIN PAGE BREADCRUMB -->
+        <ul class="page-breadcrumb breadcrumb">
+            <li>
+                <a class="uppercase" href="/">Trang chủ</a><i class="fa fa-circle"></i>
+            </li>
+            <% if (link === 2) { %>
+            <li>
+                <a class="uppercase" href="/danh-sach-truyen">Danh sách truyện</a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <% } %>
+            <li>
+                <a class="uppercase" href="<%= "/truyen/" + book.nameGen %>"><%= book.name %></a>
+                <i class="fa fa-circle"></i>
+            </li>
+            <li class="active">
+                <%= chapter.name %>
+            </li>
+        </ul>
+        <!-- END PAGE BREADCRUMB -->
+        <!-- BEGIN PAGE CONTENT INNER -->
+        <div id="sticker">
+            <div class="row">
+                <div class="col-md-2 col-xs-2 field">
+                    <% if (typeof prevChapter !== 'undefined' && prevChapter) { %>
+                    <a href="<%= "/truyen/" + book.nameGen + "/" + prevChapter.nameGen %>"
+                       title="Chương trước"
+                       class="btn btn-default command">
+                        <i class="fa fa-arrow-circle-left">
+                        </i>
+                        <span class="hidden-xs">
+                            &nbsp;Chương trước
+                        </span>
+                    </a>
+                    <% } %>
+                </div>
+                <div class="col-md-8 col-xs-8 field">
+                    <div class="row" style="margin: 0">
+                        <div class="col-md-2 col-xs-2 field">
+                            <a class="btn btn-default command" href="/" title="Trang chủ">
+                                <i class="fa fa-home">
+                                </i>
+                            </a>
+                        </div>
+                        <div class="col-md-2 col-xs-2 field">
+                            <a class="btn btn-default command" title="<%= book.name %>"
+                               href="<%= "/truyen/" + book.nameGen %>">
+                                <i class="fa fa-list">
+                                </i>
+                            </a>
+                        </div>
+                        <div class="col-md-8 col-xs-8 field">
+                            <select id="selectChapter"
+                                    class="form-control">
+                                <option value=""></option>
+                                <% _.each(chapters, function(chapterItem) { %>
+                                <option value="<%= "/truyen/" + book.nameGen + "/" + chapterItem.nameGen %>" <%= chapterItem.nameGen === chapter.nameGen ? 'selected' : '' %>>
+                                    <%= chapterItem.nameGen === chapter.nameGen ? book.name + " - " + chapterItem.name : chapterItem.name %>
+                                </option>
+                                <% }); %>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2 col-xs-2 field">
+                    <% if (typeof nextChapter !== 'undefined' && nextChapter) { %>
+                    <a href="<%= "/truyen/" + book.nameGen + "/" + nextChapter.nameGen %>"
+                       title="Chương sau"
+                       class="btn btn-default command">
+                        <i class="fa fa-arrow-circle-right">
+                        </i>
+                                <span class="hidden-xs">
+                                    &nbsp;Chương sau
+                                </span>
+                    </a>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="row center">
+            <div class="col-md-12">
+                <% _.each(images, function(image) { %>
+                <img class="content" src="<%= image.url %>">
+                <% }); %>
+            </div>
+        </div>
+
+        <!-- END PAGE CONTENT INNER -->
+    </div>
+</div>
+<!-- END PAGE CONTENT -->
